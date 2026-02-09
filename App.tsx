@@ -92,7 +92,7 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={s.safe}> 
+    <SafeAreaView style={s.safe}>
       <ScrollView style={s.scroll}>
         <TextInput
           style={s.input}
