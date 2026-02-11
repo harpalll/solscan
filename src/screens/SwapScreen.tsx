@@ -13,7 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 export function SwapScreen() {
   const [fromAmount, setFromAmount] = useState("100");
   const [toAmount, setToAmount] = useState("0.28014");
-  const [fromToken, setFromToken] = useState("USDC");
+  const [fromToken, setFromToken] = useState("ETH");
   const [toToken, setToToken] = useState("SOL");
 
   const swapTokens = () => {
@@ -38,7 +38,7 @@ export function SwapScreen() {
         <View style={s.cardHeader}>
           <TouchableOpacity style={s.tokenSelector}>
             <View style={[s.tokenIcon, { backgroundColor: "#9945FF" }]}>
-              <Text style={s.tokenIconText}>S</Text>
+              <Text style={s.tokenIconText}>E</Text>
             </View>
             <Text style={s.tokenName}>{fromToken}</Text>
             <Ionicons name="chevron-down" size={18} color="#888" />
@@ -62,6 +62,35 @@ export function SwapScreen() {
         <TouchableOpacity style={s.swapArrow} onPress={swapTokens}>
           <Ionicons name="arrow-down" size={20} color="#FFF" />
         </TouchableOpacity>
+      </View>
+
+      <View style={[s.card, { marginBottom: 10 }]}>
+        <View style={s.cardHeader}>
+          <TouchableOpacity style={s.tokenSelector}>
+            <View
+              style={[
+                s.tokenIcon,
+                { backgroundColor: "#89F336", borderRadius: 16 },
+              ]}
+            >
+              <Text style={s.tokenIconText}>S</Text>
+            </View>
+            <Text style={s.tokenName}>{toToken}</Text>
+            <Ionicons name="chevron-down" size={18} color="#888" />
+          </TouchableOpacity>
+          <TextInput
+            style={s.amountInput}
+            value={toAmount}
+            onChangeText={setToAmount}
+            keyboardType="numeric"
+            placeholder="0"
+            placeholderTextColor="#666"
+          />
+        </View>
+        <View style={s.cardFooter}>
+          <Text style={s.balanceText}>Balance: 0.0661 {toToken}</Text>
+          <Text style={s.usdText}>$499.749</Text>
+        </View>
       </View>
 
       <TouchableOpacity style={s.swapBtn} onPress={handleSwap}>
